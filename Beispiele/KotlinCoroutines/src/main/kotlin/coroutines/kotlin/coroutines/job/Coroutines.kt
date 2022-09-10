@@ -6,67 +6,60 @@ import java.lang.RuntimeException
 
 fun main() = helloWithJob()
 
+
 fun helloWithJob () = runBlocking {
     val job = launch {
-        delayedETKA()
+        delayedKKON()
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
     job.join()
     println("2022")
 }
 
 fun helloWithJobCancelation () = runBlocking {
-    val job = launch (start = CoroutineStart.LAZY ){
-        delayedETKAWithSubjobs()
+    val job = launch {
+        delayedKKONWithSubjobs()
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
     delay(10)
     job.cancel()
     println("und Tschüss... ;))")
 }
 
-suspend fun delayedETKAWithSubjobs () = coroutineScope {
+suspend fun delayedKKONWithSubjobs () = coroutineScope {
         launch {
-            delayedKarlsruhe()
+            delayedDigital()
         }
         launch {
-            delayedBrokenEntwicklertag()
+            delayedBrokenKKON()
         }
 }
 
-suspend fun delayedETKA() {
+suspend fun delayedKKON() {
     try{
         delay(1000L)
-        println("ETKA!")
+        println("KKON!")
     }catch(e : CancellationException){
-        println("Abbruch!!! :(")
+        println("Abbruch KKON :(")
     }
 }
 
-suspend fun delayedKarlsruhe() {
+suspend fun delayedDigital() {
     try{
         delay(2000L)
-        println("Karlsruhe")
+        println("digital")
     }catch(e : CancellationException){
         println("Abbruch Karlsruhe :(")
     }
 }
 
-suspend fun delayedEntwicklertag() {
+suspend fun delayedBrokenKKON() {
     try{
         delay(1000L)
-        println("Entwicklertag")
-    }catch(e : CancellationException){
-        println("Abbruch Entwicklertag :(")
-    }
-}
-
-suspend fun delayedBrokenEntwicklertag() {
-    try{
-        delay(1000L)
-        println("Entwicklertag")
+        println("digital")
         throw RuntimeException("Bang!")
     }catch(e : CancellationException){
-        println("Abbruch Karlsruhe :(")
+        println("Abbruch KKON :(")
     }
 }
+

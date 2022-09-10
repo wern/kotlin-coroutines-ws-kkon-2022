@@ -6,7 +6,7 @@ import kotlinx.coroutines.*
 fun main() =  runBlocking {
     launch {
         delay(1000L)
-        println("ETKA!")
+        println("KKON!")
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
 }

@@ -8,40 +8,40 @@ fun main() = helloWithFun()
 fun hello() = runBlocking {
     launch {
         delay(1000L)
-        println("ETKA!")
+        println("KKON!")
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
 }
 
 fun helloWithFun() = runBlocking {
     launch {
-        delayedETKANewJobs()
+        delayedKKONNewJobs()
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
 }
 
 fun helloWithFunSeq() = runBlocking {
-    delayedETKA()
-    println("Willkommen zum")
+    delayedKKON()
+    println("Willkommen zur")
 }
 
 fun helloWithTimeout() = runBlocking {
     withTimeout(50) {
-        delayedETKA()
+        delayedKKON()
     }
-    println("Willkommen zum")
+    println("Willkommen zur")
 }
 
-suspend fun delayedETKA() {
+suspend fun delayedKKON() {
     try{
         delay(1000L)
-        println("ETKA!")
+        println("KKON!")
     }catch(e : CancellationException){
-        println("Abbruch ETKA :(")
+        println("Abbruch KKON :(")
     }
 }
 
-suspend fun delayedETKANewJobs() = coroutineScope {
+suspend fun delayedKKONNewJobs() = coroutineScope {
     launch {
         delay(2000L)
         println("2022")
@@ -49,8 +49,8 @@ suspend fun delayedETKANewJobs() = coroutineScope {
 
     launch {
         delay(1000L)
-        println("Karlsruhe")
+        println("digital")
     }
 
-    println("Entwicklertag")
+    println("KKON")
 }

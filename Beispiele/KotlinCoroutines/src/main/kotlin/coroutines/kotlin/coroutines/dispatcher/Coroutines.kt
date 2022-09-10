@@ -9,17 +9,17 @@ fun main() = helloWithDefaultDispatcher()
 fun hello() = runBlocking {
     launch {
         delay(1000L)
-        printlnWithThreadInfo("ETKA!")
+        printlnWithThreadInfo("KKON!")
     }
-    printlnWithThreadInfo("Willkommen zum")
+    printlnWithThreadInfo("Willkommen zur")
 }
 
 fun helloWithDefaultDispatcher() = runBlocking {
-    launch(Dispatchers.Default) {
+    launch(Dispatchers.Main) {
         delay(1000L)
-        printlnWithThreadInfo("ETKA!")
+        printlnWithThreadInfo("KKON!")
     }
-    printlnWithThreadInfo("Willkommen zum")
+    printlnWithThreadInfo("Willkommen zur")
 }
 
 fun helloWithDefaultDispatcherAndContextSwitch() = runBlocking {
@@ -28,8 +28,8 @@ fun helloWithDefaultDispatcherAndContextSwitch() = runBlocking {
         delay(1000L)
         printlnWithThreadInfo("Doing my work...")
         withContext(outerContext) {
-            printlnWithThreadInfo("ETKA!")
+            printlnWithThreadInfo("KKON!")
         }
     }
-    printlnWithThreadInfo("Willkommen zum")
+    printlnWithThreadInfo("Willkommen zur")
 }
