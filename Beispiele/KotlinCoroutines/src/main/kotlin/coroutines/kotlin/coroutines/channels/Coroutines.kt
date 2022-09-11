@@ -19,7 +19,7 @@ fun simpelKKONCharacterChannel() = runBlocking {
     launch {
         chars.forEach {
             // Komplizierte und daher parallel ausgefuehrte Berechnung
-            delay(400)
+            delay(400L)
             channel.send(it)
         }
     }
@@ -32,7 +32,7 @@ fun closingKKONCharacterChannel() = runBlocking {
     launch {
         chars.forEach {
             // Komplizierte und daher parallel ausgefuehrte Berechnung
-            delay(400)
+            delay(400L)
             channel.send(it)
         }
         channel.close()
@@ -44,7 +44,7 @@ fun closingKKONCharacterChannel() = runBlocking {
 fun producedKKONCharacters() = runBlocking {
     val charProducer = produce {
         chars.forEach {
-            delay(400)
+            delay(400L)
             send(it)
         }
     }
@@ -55,7 +55,7 @@ fun producedKKONCharacters() = runBlocking {
 fun pipelinedKKONCharacters () = runBlocking {
     val charProducer = produce {
         chars.forEach {
-            delay(400)
+            delay(400L)
             send(it)
         }
     }
@@ -68,7 +68,7 @@ fun pipelinedKKONCharacters () = runBlocking {
 fun pipelinedKKONCharactersWithMultipleConsumers() = runBlocking {
     val charProducer = produce {
         chars.forEach {
-            delay(400)
+            delay(400L)
             send(it)
         }
     }
@@ -99,6 +99,6 @@ fun CoroutineScope.produceWords(charProducer : ReceiveChannel<Char>) : ReceiveCh
 
 fun CoroutineScope.launchWordConsumer(idx: Int, wordProducer: ReceiveChannel<String>) = launch {
     for (word in wordProducer) {
-        println("${word} (${idx}. Consumer)")
+        println("$word ($idx. Consumer)")
     }
 }

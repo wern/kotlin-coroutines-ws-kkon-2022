@@ -15,7 +15,7 @@ fun hello() = runBlocking {
 }
 
 fun helloWithDefaultDispatcher() = runBlocking {
-    launch(Dispatchers.Main) {
+    launch(Dispatchers.Default) {
         delay(1000L)
         printlnWithThreadInfo("KKON!")
     }
